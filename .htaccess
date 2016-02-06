@@ -1,0 +1,13 @@
+AddHandler wsgi-script .py
+Options +ExecCGI
+
+RewriteEngine On
+RewriteBase /test_access
+
+RewriteRule ^(static.*)$ - [L]
+
+RewriteCond %{REQUEST_URI} ^/test_access/$
+RewriteRule ^$ kerbAccess/wsgi.py [L]
+
+RewriteCond %{REQUEST_URI} !/test_access/kerbAccess/wsgi.py
+RewriteRule ^(.*)$ kerbAccess/wsgi.py/$1 [L]
