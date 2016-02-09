@@ -20,9 +20,14 @@ RewriteRule ^(.*)$ APP_NAME/wsgi.py/$1 [L]
 
 ### APP_NAME/settings.py
 ```
-STATIC_URL = '/APP_NAME/static'’
+STATIC_URL = '/APP_NAME/static'
 ```
 
+### APP_NAME/wsgi.py
+```
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+```
 
 
 
