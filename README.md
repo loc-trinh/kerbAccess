@@ -1,7 +1,8 @@
 # kerbAccess
 MIT kerberos access with simmons-dev. Requires Django 1.7.
 
-## .htaccess
+### .htaccess
+```
 AddHandler wsgi-script .py
 Options +ExecCGI
 
@@ -15,5 +16,13 @@ RewriteRule ^$ APP_NAME/wsgi.py [L]
 
 RewriteCond %{REQUEST_URI} !/PATH/APP_NAME/wsgi.py
 RewriteRule ^(.*)$ APP_NAME/wsgi.py/$1 [L]
+```
+
+### APP_NAME/settings.py
+```
+STATIC_URL = '/APP_NAME/static'’
+```
+
+
 
 
